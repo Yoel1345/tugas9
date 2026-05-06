@@ -11,13 +11,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // ─── Koneksi Database ─────────────────────────────────────────────────────────
-$host = "tramway.proxy.rlway.net";
-$user = "root";
-$pass = "U1RxvfWWGzDHgwdBpSuwICzrVLyXPBTf";
-$db   = "railway";
-$port = 31040; // Ambil angka di ujung MYSQL_PUBLIC_URL
+$host = getenv('MYSQLHOST');
+$user = getenv('MYSQLUSER');
+$pass = getenv('MYSQLPASSWORD');
+$db   = getenv('MYSQLDATABASE');
+$port = getenv('MYSQLPORT');
 
-$conn = new mysqli($host, $user, $pass, $db);
+// 2. Koneksi ke database (Cukup satu kali saja)
+$conn = new mysqli($host, $user, $pass, $db, $port);
+
+// 3. Cek koneksi
 if ($conn->connect_error) {
     http_response_code(500);
     echo json_encode(["error" => "Koneksi gagal: " . $conn->connect_error]);
