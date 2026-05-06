@@ -11,10 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // ─── Koneksi Database ─────────────────────────────────────────────────────────
-$host = "mysql.railway.internal";
+$host = "tramway.proxy.rlway.net";
 $user = "root";
-$pass = "UlRxvfWWGzDHgwdBpSuwICzrVLyXPBTf";
+$pass = "U1RxvfWWGzDHgwdBpSuwICzrVLyXPBTf";
 $db   = "railway";
+$port = 31040; // Ambil angka di ujung MYSQL_PUBLIC_URL
 
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
