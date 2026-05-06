@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // ─── Koneksi Database ─────────────────────────────────────────────────────────
-$host = "sql301.infinityfree.com";
-$user = "if0_41820023";
-$pass = "Yoeldavid033";
-$db   = "if0_41820023_tugas9_232025";
+$host = "mysql.railway.internal";
+$user = "root";
+$pass = "UlRxvfWWGzDHgwdBpSuwICzrVLyXPBTf";
+$db   = "railway";
 
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
